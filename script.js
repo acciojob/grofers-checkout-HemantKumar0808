@@ -1,11 +1,11 @@
-// Select all price elements
-const prices = document.querySelectorAll(".price");
+// Select all prices
+const prices = document.querySelectorAll(".prices");
 
 let total = 0;
 
-// Loop through each price and add to total
-prices.forEach(function(price) {
-    total += parseInt(price.textContent);
+// Calculate total dynamically
+prices.forEach((price) => {
+  total += parseInt(price.textContent);
 });
 
 // Create new row
@@ -14,16 +14,17 @@ const newRow = document.createElement("tr");
 // Create new cell
 const newCell = document.createElement("td");
 
-// Make it span across 2 columns
+// Set id (required for test case)
+newCell.setAttribute("id", "ans");
+
+// Span across 2 columns
 newCell.setAttribute("colspan", "2");
 
-// Add total text
-newCell.textContent = "Total Price: " + total;
+// Add total value
+newCell.textContent = total;
 
 // Append cell to row
 newRow.appendChild(newCell);
 
 // Append row to table
 document.querySelector("table").appendChild(newRow);
-
-
